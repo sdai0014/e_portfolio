@@ -9,8 +9,8 @@ function Home() {
                     AVAILABLE FOR HIRE — 2026
                 </span>
 
-                <h1 className="text-[10rem] font-black uppercase leading-none tracking-tighter text-black">
-                    ERIC<span className="text-[#F24405]">.</span>
+                <h1 className="text-[6rem] font-black leading-none tracking-tighter text-black">
+                    Shunlong Dai<span className="text-[#F24405]">.</span>
                 </h1>
 
                 <p className="max-w-2xl text-xl border-l-8 border-black pl-8">

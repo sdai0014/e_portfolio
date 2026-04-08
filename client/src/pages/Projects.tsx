@@ -48,7 +48,7 @@ function Projects() {
   return (
     <main className="py-16 px-8 max-w-7xl mx-auto">
 
-      <h1 className="text-[6rem] font-black uppercase leading-[0.9] tracking-tighter mb-16">
+      <h1 className="text-[4rem] font-black uppercase leading-[0.9] tracking-tighter mb-16">
         PROJECTS<span className="text-[#F24405]">_</span>
       </h1>
 

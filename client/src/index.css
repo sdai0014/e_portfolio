@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'JetBrains Mono', monospace;
+}
 
 @keyframes marquee {
     0% { transform: translateX(0); }
