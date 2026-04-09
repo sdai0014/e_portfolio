@@ -1,4 +1,6 @@
 import ProjectCard from '../components/ProjectCard'
+import { TypingAnimation } from '@/components/ui/typing-animation'
+import { MotionCarousel } from '@/components/animate-ui/components/community/motion-carousel'
 
 interface Project {
   id: number
@@ -46,14 +48,19 @@ const projects: Project[] = [
 
 function Projects() {
   return (
-    <main className="py-16 px-8 max-w-7xl mx-auto">
+    <main className="mx-auto max-w-7xl px-4 pt-2 pb-10 sm:px-6 sm:pt-3 sm:pb-14 lg:px-8 lg:pt-4 lg:pb-16">
 
-      <h1 className="text-[4rem] font-black uppercase leading-[0.9] tracking-tighter mb-16">
-        PROJECTS<span className="text-[#F24405]">_</span>
+      <h1 className="mb-6 text-center text-[3rem] font-black uppercase leading-[0.9] tracking-tighter dark:text-white sm:mb-8 sm:text-[3.8rem] lg:mb-10 lg:text-[4.6rem]">
+        <TypingAnimation
+          className="mx-auto text-center text-[2.2rem] font-black uppercase leading-[0.9] tracking-tighter [word-spacing:-0.2em] dark:text-white [&>span]:text-[#F24405] sm:text-[2.8rem] lg:text-[3.4rem]"
+          cursorStyle="underscore"
+          words={['No fluff, just projects.', 'Real ideas, real impact.', 'Fast, clean, and scalable.']}
+          loop
+        />
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map(project => (
+      <MotionCarousel
+        slides={projects.map(project => (
           <ProjectCard
             key={project.id}
             name={project.name}
@@ -63,7 +70,8 @@ function Projects() {
             live={project.live}
           />
         ))}
-      </div>
+        options={{ loop: false, align: 'center', containScroll: false }}
+      />
 
     </main>
   )
