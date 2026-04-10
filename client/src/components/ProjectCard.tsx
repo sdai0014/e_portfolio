@@ -1,12 +1,11 @@
 interface ProjectCardProps {
   name: string
   description: string
-  tech: string[]
   github: string
   live: string | null
 }
 
-function ProjectCard({ name, description, tech, github, live }: ProjectCardProps) {
+function ProjectCard({ name, description, github, live }: ProjectCardProps) {
   return (
     <div className="min-h-[20rem] bg-white dark:bg-[#111] border-[3px] border-black dark:border-white p-3 shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] hover:shadow-[8px_8px_0px_0px_#F24405] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-100 sm:min-h-[22rem]">
       <div className="flex h-full flex-col gap-3">

@@ -111,7 +111,6 @@ function Projects() {
               key={project.id}
               name={project.name}
               description={project.description}
-              tech={project.tech}
               github={project.github}
               live={project.live}
             />
