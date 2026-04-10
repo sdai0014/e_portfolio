@@ -1,5 +1,3 @@
-import Chip from './Chip'
-
 interface ProjectCardProps {
   name: string
   description: string
@@ -16,11 +14,6 @@ function ProjectCard({ name, description, tech, github, live }: ProjectCardProps
           <span className="text-[0.55rem] font-black uppercase tracking-widest text-black/30 dark:text-white/30 sm:text-[0.6rem]">{name}</span>
         </div>
         <div className="flex flex-col flex-1 min-w-0">
-          <div className="mb-2 flex flex-wrap gap-1.5">
-            {tech.map((t) => (
-              <Chip key={t} text={t} />
-            ))}
-          </div>
           <h2 className="mb-1 text-[1rem] font-black uppercase text-black dark:text-white sm:text-[1.15rem]">{name}</h2>
           <p className="mb-3 text-[0.92rem] leading-relaxed text-black dark:text-white sm:text-[1rem]">{description}</p>
           <div className="mt-auto flex flex-wrap gap-1.5">

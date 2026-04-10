@@ -101,8 +101,8 @@ function MotionCarousel(props: PropType) {
   } = useEmblaControls(emblaApi);
 
   return (
-    <div className="w-full space-y-6 [--slide-spacing:0.9rem] [--slide-size:88%] sm:[--slide-size:78%] md:[--slide-size:58%] xl:[--slide-size:42%]">
-      <div className="overflow-hidden" ref={emblaRef}>
+    <div className="w-full space-y-5 [--slide-spacing:0.75rem] [--slide-size:80%] sm:space-y-6 sm:[--slide-spacing:0.9rem] sm:[--slide-size:78%] md:[--slide-size:58%] xl:[--slide-size:42%]">
+      <div className="overflow-hidden px-0 py-0 sm:overflow-visible sm:px-3 sm:py-3" ref={emblaRef}>
         <div className="flex touch-pan-y touch-pinch-zoom">
           {slides.map((slide, index) => {
             const isActive = index === selectedIndex;
@@ -110,7 +110,7 @@ function MotionCarousel(props: PropType) {
             return (
               <motion.div
                 key={index}
-                className="mr-[var(--slide-spacing)] basis-[var(--slide-size)] flex-none flex min-w-0"
+                className="mr-[var(--slide-spacing)] basis-[var(--slide-size)] flex min-w-0 flex-none p-0 sm:p-3"
                 initial={false}
                 animate={{ scale: isActive ? 1 : 0.95, opacity: isActive ? 1 : 0.5 }}
                 transition={transition}
@@ -122,11 +122,11 @@ function MotionCarousel(props: PropType) {
         </div>
       </div>
 
-      <div className="mx-auto flex w-[var(--slide-size)] max-w-full items-center justify-between gap-3 sm:gap-4">
+      <div className="mx-auto flex w-[var(--slide-size)] max-w-full items-center justify-center gap-3 sm:justify-between sm:gap-4">
         <button
           onClick={onPrev}
           disabled={prevDisabled}
-          className="border-[3px] border-black px-2 py-2 text-xs font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_black] transition-all duration-100 hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_#F24405] disabled:pointer-events-none disabled:opacity-30 dark:border-white dark:text-white sm:px-2.5 sm:text-sm"
+          className="hidden border-[3px] border-black px-2 py-2 text-xs font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_black] transition-all duration-100 hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_#F24405] disabled:pointer-events-none disabled:opacity-30 dark:border-white dark:text-white sm:block sm:px-2.5 sm:text-sm"
         >
           <ChevronLeft className="size-4.5 sm:size-5" />
         </button>
@@ -145,7 +145,7 @@ function MotionCarousel(props: PropType) {
         <button
           onClick={onNext}
           disabled={nextDisabled}
-          className="border-[3px] border-black px-2 py-2 text-xs font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_black] transition-all duration-100 hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_#F24405] disabled:pointer-events-none disabled:opacity-30 dark:border-white dark:text-white sm:px-2.5 sm:text-sm"
+          className="hidden border-[3px] border-black px-2 py-2 text-xs font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_black] transition-all duration-100 hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_#F24405] disabled:pointer-events-none disabled:opacity-30 dark:border-white dark:text-white sm:block sm:px-2.5 sm:text-sm"
         >
           <ChevronRight className="size-4.5 sm:size-5" />
         </button>

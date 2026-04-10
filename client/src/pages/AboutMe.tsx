@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { motion } from 'motion/react'
 import SectionLabel from '../components/SectionLabel'
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy'
 
@@ -47,6 +48,53 @@ type TreeNodeProps = {
   depth?: number
 }
 
+const pageVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+}
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
+const cardStackVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.08,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+}
+
 function TreeNode({ node, depth = 0 }: TreeNodeProps) {
   const [open, setOpen] = React.useState(true)
   const isFolder = node.children && node.children.length > 0
@@ -81,11 +129,16 @@ function TreeNode({ node, depth = 0 }: TreeNodeProps) {
 
 function AboutMe() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-7">
+    <motion.main
+      className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-7"
+      variants={pageVariants}
+      initial="hidden"
+      animate="show"
+    >
       <div className="flex flex-col gap-10 sm:gap-14">
 
         {/* Top: bio | skill tree */}
-        <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2">
+        <motion.div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2" variants={sectionVariants}>
 
           {/* Left: Bio */}
           <section className="flex flex-col">
@@ -106,8 +159,8 @@ function AboutMe() {
             <div>
               <SectionLabel text="CONTACT" />
               <div className="border-[3px] border-black bg-black p-4 text-white shadow-[4px_4px_0px_#F24405] dark:border-white dark:shadow-[4px_4px_0px_white]">
-                <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <span className="break-all text-sm font-black uppercase underline decoration-[#F24405] decoration-[4px] underline-offset-6 sm:text-lg sm:underline-offset-8">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span className="min-w-0 flex-1 break-all text-sm font-black uppercase underline decoration-[#F24405] decoration-[4px] underline-offset-6 sm:text-lg sm:underline-offset-8">
                     ERIC.DAI.AU@GMAIL.COM
                   </span>
                   <CopyButton content="eric.dai.au@gmail.com" variant="brutalist" />
@@ -130,16 +183,16 @@ function AboutMe() {
             </div>
           </section>
 
-        </div>
+        </motion.div>
 
         {/* Bottom: Experience + Education */}
-        <div className="grid grid-cols-1 items-start gap-8 sm:gap-10 xl:grid-cols-2 xl:gap-x-14">
+        <motion.div className="grid grid-cols-1 items-start gap-8 sm:gap-10 xl:grid-cols-2 xl:gap-x-14" variants={sectionVariants}>
 
           {/* Experience */}
           <section>
             <SectionLabel text="EXPERIENCE" />
-            <div className="space-y-5">
-              <div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5">
+            <motion.div className="space-y-5" variants={cardStackVariants}>
+              <motion.div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5" variants={cardVariants}>
                 <div className="mb-4 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -157,8 +210,8 @@ function AboutMe() {
                   <li className="flex"><span className="mr-2">{'>'}</span><span>Performed ELK stack upgrades and routine maintenance to ensure system reliability and performance.</span></li>
                   <li className="flex"><span className="mr-2">{'>'}</span><span>Built Kibana dashboards to monitor VDI environments and visualize real-time system and ticket data.</span></li>
                 </ul>
-              </div>
-              <div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5">
+              </motion.div>
+              <motion.div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5" variants={cardVariants}>
                 <div className="mb-4 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -176,32 +229,32 @@ function AboutMe() {
                   <li className="flex"><span className="mr-2">{'>'}</span><span>Maintained automated reports/alerts and developed dashboards aligned with business needs.</span></li>
                   <li className="flex"><span className="mr-2">{'>'}</span><span>Developed Python automation integrating Splunk with ATR to streamline incident handling and ticket resolution.</span></li>
                 </ul>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </section>
 
           {/* Education */}
           <section>
             <SectionLabel text="EDUCATION" />
-            <div className="space-y-5">
-              <div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5">
+            <motion.div className="space-y-5" variants={cardStackVariants}>
+              <motion.div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5" variants={cardVariants}>
                 <span className="text-xs font-black tracking-widest text-[#F24405]">2024 — 2026</span>
                 <h3 className="text-base font-bold mt-2 text-black dark:text-white">Master of Information Technology</h3><br />
                 <p className="text-black dark:text-white">Monash University</p><br />
                 <p className="text-black dark:text-white">· GPA 3.5/4</p>
-              </div>
-              <div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5">
+              </motion.div>
+              <motion.div className="border-[3px] border-black bg-white p-4 shadow-[4px_4px_0px_black] transition-all duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_#F24405] dark:border-white dark:bg-[#111] dark:shadow-[4px_4px_0px_white] sm:p-5" variants={cardVariants}>
                 <span className="text-xs font-black tracking-widest text-[#F24405]">2018 — 2022</span>
                 <h3 className="text-base font-bold mt-2 text-black dark:text-white">Bachelor's in Computer Science</h3><br />
                 <p className="text-black dark:text-white">Dalian University of Foreign Language</p><br />
                 <p className="text-black dark:text-white">· WAM 83/100</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </section>
 
-        </div>
+        </motion.div>
       </div>
-    </main>
+    </motion.main>
   )
 }
 
