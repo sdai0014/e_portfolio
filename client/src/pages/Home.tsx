@@ -43,7 +43,7 @@ function Home() {
                 <h1 className="font-black leading-none tracking-tighter text-black dark:text-white">
                     <MorphingText
                       texts={['Shunlong Dai<span style="color:#F24405">.</span>', 'Or just Eric<span style="color:#F24405">.</span>']}
-                      className="mx-0 max-w-none w-[9ch] h-[3.3rem] text-left text-[3.2rem] font-black leading-none tracking-tighter [word-spacing:-0.15em] text-black dark:text-white sm:w-[10ch] sm:h-[4.1rem] sm:text-[4rem] md:w-[11ch] md:h-[5rem] md:text-[5rem] lg:w-[12ch] lg:h-[6rem] lg:text-[6rem]"
+                      className="mx-0 max-w-none w-full h-[4rem] text-left text-[3.2rem] font-black leading-none tracking-tighter [word-spacing:-0.15em] text-black dark:text-white sm:w-[10ch] sm:h-[4.1rem] sm:text-[4rem] md:w-[11ch] md:h-[5rem] md:text-[5rem] lg:w-[12ch] lg:h-[6rem] lg:text-[6rem]"
                     />
                 </h1>
 

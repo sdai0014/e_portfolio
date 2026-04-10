@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import AboutMe from "./pages/AboutMe"
 import Projects from "./pages/Projects"
 import Home from "./pages/Home"
+
 function Layout() {
   return (
     <div className="min-h-screen relative">
