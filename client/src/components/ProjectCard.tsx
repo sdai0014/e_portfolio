@@ -3,14 +3,19 @@ interface ProjectCardProps {
   description: string
   github: string
   live: string | null
+  image?: string
 }
 
-function ProjectCard({ name, description, github, live }: ProjectCardProps) {
+function ProjectCard({ name, description, github, live, image }: ProjectCardProps) {
   return (
     <div className="min-h-[20rem] bg-white dark:bg-[#111] border-[3px] border-black dark:border-white p-3 shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] hover:shadow-[8px_8px_0px_0px_#F24405] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-100 sm:min-h-[22rem]">
       <div className="flex h-full flex-col gap-3">
-        <div className="aspect-[16/8.5] w-full border-[3px] border-black dark:border-white bg-[#eeeeee] dark:bg-[#222] flex items-center justify-center">
-          <span className="text-[0.55rem] font-black uppercase tracking-widest text-black/30 dark:text-white/30 sm:text-[0.6rem]">{name}</span>
+        <div className="aspect-[16/8.5] w-full border-[3px] border-black dark:border-white bg-[#eeeeee] dark:bg-[#222] flex items-center justify-center overflow-hidden">
+          {image ? (
+            <img src={image} alt={name} className="w-full h-full object-cover object-top" />
+          ) : (
+            <span className="text-[0.55rem] font-black uppercase tracking-widest text-black/30 dark:text-white/30 sm:text-[0.6rem]">{name}</span>
+          )}
         </div>
         <div className="flex flex-col flex-1 min-w-0">
           <h2 className="mb-1 text-[1rem] font-black uppercase text-black dark:text-white sm:text-[1.15rem]">{name}</h2>

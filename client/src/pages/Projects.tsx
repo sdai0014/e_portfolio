@@ -10,40 +10,27 @@ interface Project {
   tech: string[]
   github: string
   live: string | null
+  image?: string
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    name: 'VDI_MONITOR',
-    description: 'Real-time VDI monitoring dashboard built in Kibana Canvas, visualising network health and session metrics across hundreds of endpoints.',
-    tech: ['Python', 'ELK Stack', 'Kibana'],
-    github: '#',
-    live: null,
+    name: 'PORTFOLIO_MVP',
+    description: 'Personal investment dashboard aggregating live Interactive Brokers equity positions and Binance crypto holdings into a single view — with real-time P&L, asset allocation charts, and AUD / USD / CNY currency switching.',
+    tech: ['Vue.js', 'TypeScript', 'IBKR API', 'Binance API'],
+    github: 'https://github.com/sdai0014/Portfolio_MVP_Demo',
+    live: 'https://portfolio-mvp-demo.pages.dev/overview',
+    image: '/portfolio-mvp-preview.png',
   },
   {
     id: 2,
-    name: 'TICKET_BOT',
-    description: 'Python automation integrated with ServiceNow that classifies, enriches, and auto-resolves infrastructure alerts — cutting mean time to resolution by 40%.',
-    tech: ['Python', 'ServiceNow', 'REST API'],
-    github: '#',
-    live: null,
-  },
-  {
-    id: 3,
-    name: 'E_PORTFOLIO',
-    description: 'This site. A brutalist full-stack portfolio built with React, TypeScript, and Node.js — designed with industrial-grade precision.',
-    tech: ['React', 'TypeScript', 'Node.js'],
-    github: '#',
-    live: '#',
-  },
-  {
-    id: 4,
-    name: 'SPLUNK_ATR',
-    description: "SPL query suite and Python bridge connecting Splunk alerts to Accenture's Automated Ticket Resolver, enabling zero-touch incident response.",
-    tech: ['Python', 'Splunk', 'SPL'],
-    github: '#',
-    live: null,
+    name: 'NUTRIMAN',
+    description: "Men's nutrition web app featuring a searchable food macro database, recipe browser with user ratings, and AI-powered daily health tips delivered via Cloud Functions — all backed by Firebase auth and real-time data.",
+    tech: ['Vue.js', 'Firebase', 'Cloud Functions'],
+    github: 'https://github.com/sdai0014/Nutriman',
+    live: 'https://nutriman.pages.dev',
+    image: '/nutriman-preview.png',
   },
 ]
 
@@ -113,6 +100,7 @@ function Projects() {
               description={project.description}
               github={project.github}
               live={project.live}
+              image={project.image}
             />
           ))}
           options={{ loop: false, align: 'center', containScroll: false }}
